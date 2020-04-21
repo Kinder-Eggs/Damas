@@ -12,6 +12,18 @@ public class Table {
             new NormalPiece(6, true, 7), new NormalPiece(7, true, 8),
             new NormalPiece(8, true, 9), new NormalPiece(9, true, 10),
             new NormalPiece(10, true, 11), new NormalPiece(11, true, 12)};
+    DoublePiece[] whitedoublepieces = {new DoublePiece(false, -1), new DoublePiece(false, -2),
+            new DoublePiece(false, -3), new DoublePiece(false, -4),
+            new DoublePiece(false, -5), new DoublePiece(false, -6),
+            new DoublePiece(false, -7), new DoublePiece(false, -8),
+            new DoublePiece(false, -9), new DoublePiece(false, -10),
+            new DoublePiece(false, -11), new DoublePiece(false, -12)};
+    DoublePiece[] blackdoublepieces = {new DoublePiece(true, 1), new DoublePiece(true, 2),
+            new DoublePiece(true, 3), new DoublePiece(true, 4),
+            new DoublePiece(true, 5), new DoublePiece(true, 6),
+            new DoublePiece(true, 7), new DoublePiece(true, 8),
+            new DoublePiece(true, 9), new DoublePiece(true, 10),
+            new DoublePiece(true, 11), new DoublePiece(true, 12)};
 
     public void printTable() {
         for(int j = 0; j < 8; j++) {
@@ -25,9 +37,17 @@ public class Table {
                 if(positions[i+4*j] == 0) {
                     System.out.print(" -");
                 } else if(positions[i+4*j] > 0) {
-                    System.out.print(" P");
+                    if(blackpieces[positions[i+4*j] - 1].isdouble) {
+                        System.out.print(" P");
+                    } else {
+                        System.out.print(" p");
+                    }
                 } else {
-                    System.out.print(" B");
+                    if(whitepieces[-(positions[i+4*j]) - 1].isdouble) {
+                        System.out.print(" B");
+                    } else {
+                        System.out.print(" b");
+                    }
                 }
                 if( j % 2 == 1 || i != 3) {
                     System.out.print(" -");
